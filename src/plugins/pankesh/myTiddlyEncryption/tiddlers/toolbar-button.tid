@@ -1,0 +1,7 @@
+title: $:/plugins/pankesh/myTiddlyEncryption/ui/ViewToolbar
+tags: $:/tags/ViewToolbar
+caption: decrypt
+description: Decrypt this tiddler
+condition: [<currentTiddler>tags[]regexp[^Decrypt\(]]
+
+<$tiddlyencrypt-decrypt tiddler=<<currentTiddler>>/>

@@ -1,0 +1,10 @@
+{
+  "title": "$:/plugins/pankesh/myTiddlyEncryption",
+  "name": "MyTiddlyEncryption",
+  "description": "Per-tiddler AES-256 encryption with per-prompt password management",
+  "author": "Pankesh",
+  "version": "1.1.3",
+  "core-version": ">=5.1.0",
+  "plugin-type": "plugin",
+  "list": "readme"
+}

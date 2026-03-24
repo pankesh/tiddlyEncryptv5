@@ -1,0 +1,15 @@
+# Runtime / generated
+.claude-flow/
+node_modules/
+
+# Claude Code — skills are framework files, not project code
+.claude/skills/
+
+# Environment / secrets (never commit these)
+.env
+.env.*
+*.secret
+
+# OS
+.DS_Store
+Thumbs.db

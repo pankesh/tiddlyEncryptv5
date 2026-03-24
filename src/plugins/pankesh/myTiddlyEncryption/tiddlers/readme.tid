@@ -1,0 +1,41 @@
+title: $:/plugins/pankesh/myTiddlyEncryption/readme
+
+! MyTiddlyEncryption
+
+Per-tiddler AES-256 encryption for TiddlyWiki v5. Each tiddler can be independently encrypted with its own password (or share a password with other tiddlers using the same ''prompt label'').
+
+!! Quick Start
+
+# Tag any tiddler with `Encrypt(myLabel)` — replace `myLabel` with a short hint to help you remember the password
+# Save the wiki — you will be prompted for a password for that label
+# The tiddler text is encrypted and the tag changes to `Decrypt(myLabel)`
+# To read it again, click the ''Decrypt'' button in the toolbar or tiddler body
+
+!! Shared Passwords
+
+Multiple tiddlers tagged with the same label (e.g. `Encrypt(work)`) share one password. You are only asked once per label per session.
+
+!! Widgets
+
+Place these in any tiddler to create action buttons:
+
+|!Widget |!Description |
+|`<$tiddlyencrypt-decrypt tiddler="Title"/>` |Decrypt a single tiddler |
+|`<$tiddlyencrypt-decryptall/>` |Decrypt all encrypted tiddlers (prompts for each unique label) |
+|`<$tiddlyencrypt-decryptall prompt="work"/>` |Decrypt only tiddlers with the `work` label |
+|`<$tiddlyencrypt-changepw prompt="work"/>` |Change the password for all tiddlers sharing the `work` label |
+
+!! Configuration
+
+|!Setting |!Tiddler |!Default |
+|Show Decrypt button inside tiddler body |`$:/config/pankesh/myTiddlyEncryption/ShowDecryptInContent` |`yes` |
+
+Set the value to `no` to show the Decrypt button only in the toolbar.
+
+!! Notes
+
+* Passwords are held in memory for the current browser session only — they are never saved to disk
+* Encrypted tiddlers use AES-256-CCM via TiddlyWiki's built-in SJCL library
+* The encrypted storage format is: `TWEncrypted:v1` followed by a JSON blob
+* If you forget a password, the tiddler content cannot be recovered
+* To change a password: use `<$tiddlyencrypt-changepw prompt="label"/>`, then save
